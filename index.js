@@ -29,7 +29,7 @@ app.get("/chats", async (req, res) => {
   res.render("chats.ejs", { chats });
 });
 
-app.post("/chats/new", async (req, res) => {
+app.post("/chats", async (req, res) => {
   let newChat = req.body;
   newChat.createdAt = new Date();
   await Chat.insertOne(newChat)
