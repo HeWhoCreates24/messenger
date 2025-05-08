@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Chats</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="chatContainer">
+      <% if (chats.length != 0){ for (let chat of chats){ %>
+      <div class="chat" id="<%= chat._id %>">
+        <div class="userInfo" id="<%= chat._id %>">
+          <div class="from" id="<%= chat._id %>">from @<%= chat.from %></div>
+          <div class="to" id="<%= chat._id %>">to @<%= chat.to %></div>
+        </div>
+        <div class="chatInfo" id="<%= chat._id %>">
+          <div id="<%= chat._id %>"><%= chat.msg %></div>
+        </div>
+      </div>
+      <% } }else{ %>
+      <div class="noChats">No chats right now!</div>
+      <% } %>
+    </div>
+    <div class="chatBox">
+      <form action="/chats/new" class="chatForm" method="post">
+        <div class="chatInput">
+          <div class="userInput">
+            <input type="text" class="from" name="from" placeholder="from" />
+            <input type="text" class="to" name="to" placeholder="to" />
+          </div>
+          <input type="text" class="newMsg" name="msg" placeholder="message" />
+        </div>
+        <button type="submit" class="chatSend">send</button>
+      </form>
+    </div>
+    <script src="/chats.js"></script>
+  </body>
+</html>
