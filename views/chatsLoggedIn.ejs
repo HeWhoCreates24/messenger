@@ -11,12 +11,12 @@
       <% if (chats.length != 0){ for (let chat of chats){ %>
       <div class="chat" id="<%= chat._id %>">
         <div class="userInfo" id="<%= chat._id %>">
-          <div class="from" id="<%= chat._id %>">
-              from @<%= chat.from %>
-          </div>
+          <div class="from" id="<%= chat._id %>">from @<%= chat.from %></div>
           <div class="to" id="<%= chat._id %>">to @<%= chat.to %></div>
         </div>
-        <div class="chatInfo" id="<%= chat._id %>"><%= chat.msg %></div>
+        <div class="chatInfo" id="<%= chat._id %>">
+          <div id="<%= chat._id %>"><%= chat.msg %></div>
+        </div>
       </div>
       <% } }else{ %>
       <div class="noChats">No chats right now!</div>
@@ -25,9 +25,8 @@
     <div class="chatBox">
       <form action="/chats" class="chatForm" method="post">
         <div class="chatInput">
-          <input type="text" class="hidden" name="from" value="anonymous" />
           <div class="userInput">
-            <div class="from">anonymous</div>
+            <input type="text" class="from" name="from" placeholder="from" />
             <input type="text" class="to" name="to" placeholder="to" />
           </div>
           <input type="text" class="newMsg" name="msg" placeholder="message" />

@@ -203,7 +203,7 @@ body {
   gap: 1rem;
   padding: 1rem;
   min-width: max-content;
-  max-width: 400px;
+  max-width: 500px;
   > button {
     border-radius: 1rem;
     border: none;
@@ -232,4 +232,11 @@ body {
     background-color: var(--c1);
     color: var(--c3);
   }
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+.hidden {
+  display: none;
 }

@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const Chat = require("./models/chats.js");
+const User = require("./models/users.js");
 const port = process.env.PORT || "8080";
 
 app.set("views", path.join(__dirname, "views"));
@@ -80,8 +81,20 @@ app.get("/start", (req, res) => {
 });
 
 app.post("/start", (req, res) => {
-  console.log(req.body);
-  res.send("submitted");
+  let newUser = req.body;
+  if (newUser.email == undefined) {
+    // console.log("login");
+  } else {
+    // console.log("signup");
+    User.insertOne(newUser)
+      .then((result) => {
+        console.log(result);
+        res.redirect(`/chats/${result._id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 });
 
 app.listen(port, () => {
