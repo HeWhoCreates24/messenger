@@ -79,6 +79,11 @@ app.get("/start", (req, res) => {
   res.render("start.ejs");
 });
 
+app.post("/start", (req, res) => {
+  console.log(req.body);
+  res.send("submitted");
+});
+
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
