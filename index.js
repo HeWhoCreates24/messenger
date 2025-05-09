@@ -75,6 +75,10 @@ app.patch("/chats/:id", (req, res) => {
     });
 });
 
+app.get("/start", (req, res) => {
+  res.render("start.ejs");
+});
+
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
